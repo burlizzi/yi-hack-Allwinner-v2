@@ -48,7 +48,8 @@
 mqd_t ipc_mq;
 int queue_number;
 int debug;
-
+char command[1024];
+char* param=null;
 static int open_queue();
 static int clear_queue();
 static void call_callback(IPC_MESSAGE_TYPE type);
@@ -128,6 +129,8 @@ static void handle_ipc_unrecognized()
 
 static void handle_ipc_motion_generic(int detect)
 {
+    param='0'+detect;
+    system(command);
     fprintf(stderr, "GOT GENERIC MOTION\n");
     call_callback(detect);
 }
@@ -454,6 +457,7 @@ int main(int argc, char **argv)
     while (1) {
         static struct option long_options[] =
         {
+            {"command",  required_argument, 0, 'c'},
             {"pid_file",  required_argument, 0, 'p'},
             {"queue_number",  required_argument, 0, 'q'},
             {"foreground",  no_argument, 0, 'f'},
@@ -464,7 +468,7 @@ int main(int argc, char **argv)
         /* getopt_long stores the option index here. */
         int option_index = 0;
 
-        c = getopt_long (argc, argv, "p:q:fdh",
+        c = getopt_long (argc, argv, "c:p:q:fdh",
                          long_options, &option_index);
 
         /* Detect the end of the options. */
@@ -473,8 +477,17 @@ int main(int argc, char **argv)
 
         switch (c) {
         case 'p':
-            if (strlen(optarg) < 1024)
+            if (strlen(optarg) < 1023)
                 strcpy(pid_file, optarg);
+            break;
+        case 'c':
+            if (strlen(optarg) < 1022)
+            {
+                strcpy(command, optarg);
+                strcpy(command+strlen(command), "  ");
+                param=command+strlen(command)-1;
+            }
+            
             break;
 
         case 'q':
