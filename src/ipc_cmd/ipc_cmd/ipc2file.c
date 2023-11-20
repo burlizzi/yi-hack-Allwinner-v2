@@ -131,7 +131,7 @@ static void handle_ipc_motion_generic(int detect)
 {
     if (param)
     {
-        param='0'+detect;
+        *param='0'+detect;
         system(command);
     }
     fprintf(stderr, "GOT GENERIC MOTION\n");
