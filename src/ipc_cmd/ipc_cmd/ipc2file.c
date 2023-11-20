@@ -129,8 +129,11 @@ static void handle_ipc_unrecognized()
 
 static void handle_ipc_motion_generic(int detect)
 {
-    param='0'+detect;
-    system(command);
+    if (param)
+    {
+        param='0'+detect;
+        system(command);
+    }
     fprintf(stderr, "GOT GENERIC MOTION\n");
     call_callback(detect);
 }
