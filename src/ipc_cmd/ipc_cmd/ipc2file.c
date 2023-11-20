@@ -49,7 +49,7 @@ mqd_t ipc_mq;
 int queue_number;
 int debug;
 char command[1024];
-char* param=null;
+char* param=NULL;
 static int open_queue();
 static int clear_queue();
 static void call_callback(IPC_MESSAGE_TYPE type);
