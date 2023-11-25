@@ -19,8 +19,6 @@ echo "#!/tmp/sd/yi-hack/bin/busybox" > ../../build/yi-hack/bin/netstat
 chmod 0755 ../../build/yi-hack/bin/netstat
 echo "#!/tmp/sd/yi-hack/bin/busybox" > ../../build/yi-hack/bin/rmdir
 chmod 0755 ../../build/yi-hack/bin/rmdir
-echo "#!/tmp/sd/yi-hack/bin/busybox" > ../../build/yi-hack/bin/tar
-chmod 0755 ../../build/yi-hack/bin/tar
 echo "#!/tmp/sd/yi-hack/bin/busybox" > ../../build/yi-hack/sbin/mkswap
 chmod 0755 ../../build/yi-hack/sbin/mkswap
 echo "#!/tmp/sd/yi-hack/bin/busybox" > ../../build/yi-hack/usr/bin/bzip2
@@ -45,6 +43,8 @@ echo "#!/tmp/sd/yi-hack/bin/busybox" > ../../build/yi-hack/usr/bin/sort
 chmod 0755 ../../build/yi-hack/usr/bin/sort
 echo "#!/tmp/sd/yi-hack/bin/busybox" > ../../build/yi-hack/usr/bin/tail
 chmod 0755 ../../build/yi-hack/usr/bin/tail
+echo "#!/tmp/sd/yi-hack/bin/busybox" > ../../build/yi-hack/usr/bin/uptime
+chmod 0755 ../../build/yi-hack/usr/bin/uptime
 echo "#!/tmp/sd/yi-hack/bin/busybox" > ../../build/yi-hack/usr/bin/xargs
 chmod 0755 ../../build/yi-hack/usr/bin/xargs
 echo "#!/tmp/sd/yi-hack/bin/busybox" > ../../build/yi-hack/usr/bin/wget
